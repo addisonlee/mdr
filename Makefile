@@ -9,8 +9,11 @@ LDFLAGS:=-X main.GitCommit=${GIT_COMMIT} \
 	-X main.GitLastTag=${GIT_LAST_TAG} \
 	-X main.GitExactTag=${GIT_EXACT_TAG}
 
+echo:
+	echo $(LDFLAGS)
+
 build:
-	go build -ldflags "$(LDFLAGS)" .
+	go build -ldflags "$(LDFLAGS)" -o mdr_$(GIT_LAST_TAG)_$(GOOS)_$(GOARCH) .
 
 install:
 	go install -ldflags "$(LDFLAGS)" .
