@@ -19,7 +19,10 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: make build
+      run: make echo
+
+    - name: git
+      run: git log
 
     - name: Test
       run: mdr --version
