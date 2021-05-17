@@ -20,14 +20,11 @@ jobs:
       with:
         go-version: 1.15
 
-    - name: Echo
-      run: make echo
-
     - name: Build
       run: make build
 
-    - name: git
-      run: git version
+    - name: ls -ltr
+      run: ls -ltr
 
     - name: Test
-      run: mdr --version
+      run: ./mdr --version
