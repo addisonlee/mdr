@@ -33,6 +33,9 @@ jobs:
     - name: output
       run: echo ${{ steps.input_id.outputs.i1 }}
 
+    - name: git-fu
+      run: echo ${GITHUB_REF#refs/*/}
+
 #     - name: Build Mac Intel
 #       run: make build GOOS=darwin GOARCH=amd64
 
