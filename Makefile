@@ -13,7 +13,7 @@ echo:
 	echo $(LDFLAGS)
 
 build:
-	go build -ldflags "$(LDFLAGS)" .
+	go build -ldflags "$(LDFLAGS)" -o mdr_$(GIT_LAST_TAG)_$(GOOS)_$(GOARCH) .
 
 install:
 	go install -ldflags "$(LDFLAGS)" .
