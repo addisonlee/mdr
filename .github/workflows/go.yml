@@ -24,8 +24,17 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Build Mac Intel
-      run: make build GOOS=darwin GOARCH=amd64
+    - name: input
+      run: |
+        echo myinput1
+        echo myinput2
+      id: input_id
+
+    - name: output
+      run: echo $ {{ steps.input_id.outputs.* }}
+
+#     - name: Build Mac Intel
+#       run: make build GOOS=darwin GOARCH=amd64
 
 #     - name: Build Mac Apple Silicon
 #       run: make build GOOS=darwin GOARCH=arm64
