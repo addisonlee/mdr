@@ -36,7 +36,7 @@ jobs:
       run: make build GOOS=darwin GOARCH=arm64
 
     - name: Test Mac M1/Apple Silicon
-      run: ./mdr_v*_arm64 --version 2>&1 | grep -i 'bad CPU type' > /dev/null
+      run: (./mdr_v*_arm64 --version 2>&1 | grep -i 'bad CPU type' > /dev/null) && echo "Verified that binary is built for a different architecture."
 
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.5
