@@ -11,10 +11,6 @@ jobs:
   setup:
     runs-on: macos-10.15
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
     - name: Set up Go
       uses: actions/setup-go@v2
       with:
@@ -24,6 +20,10 @@ jobs:
     runs-on: macos-10.15
     needs: [setup]
     steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
     - name: Build Mac Intel
       run: make build GOOS=darwin GOARCH=amd64
 
