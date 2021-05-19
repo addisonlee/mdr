@@ -30,13 +30,13 @@ jobs:
       run: make build GOOS=darwin GOARCH=amd64
 
     - name: Test Mac Intel
-      run: ./mdr_v*_amd64 --version
+      run: dist/mdr_v*_amd64 --version
 
     - name: Build Mac M1/Apple Silicon
       run: make build GOOS=darwin GOARCH=arm64
 
     - name: Test Mac M1/Apple Silicon
-      run: (./mdr_v*_arm64 --version 2>&1 | grep -i 'bad CPU type' > /dev/null) && echo "Verified that binary is built for a different architecture."
+      run: (dist/mdr_v*_arm64 --version 2>&1 | grep -i 'bad CPU type' > /dev/null) && echo "Verified that binary is built for a different architecture."
 
     - name: GH Release
       uses: softprops/action-gh-release@v0.1.5
@@ -44,4 +44,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        files: mdr*
+        files: dist/mdr_v*
