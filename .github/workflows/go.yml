@@ -31,7 +31,7 @@ jobs:
       id: input_id
 
     - name: output
-      run: echo ${{ steps.input_id.outputs.* }}
+      run: echo ${{ steps.input_id.outputs.i1 }}
 
 #     - name: Build Mac Intel
 #       run: make build GOOS=darwin GOARCH=amd64
