@@ -26,8 +26,8 @@ You can grab a [pre-compiled binary](https://github.com/MichaelMure/mdr/releases
 | Quit | <kbd>ctrl+C</kbd>, <kbd>Q</kbd>|
 | Up | <kbd>↑</kbd>, <kbd>K</kbd>, <kbd>ctrl+P</kbd>|
 | Down | <kbd>↓</kbd>, <kbd>J</kbd>, <kbd>ctrl+N</kbd> |
-| Page Up | <kbd>⇞</kbd> |
-| Page Down | <kbd>⇟</kbd>, <kbd>space</kbd> |
+| Page Up | <kbd>⇞</kbd>, <kbd>,</kbd> |
+| Page Down | <kbd>⇟</kbd>, <kbd>space</kbd>, <kbd>m</kbd> |
 
 ## Origin
 

@@ -102,8 +102,12 @@ func newUi(g *gocui.Gui) (*ui, error) {
 		{renderView, gocui.KeyCtrlN, gocui.ModNone, result.down},
 		{renderView, gocui.KeyArrowDown, gocui.ModNone, result.down},
 		{renderView, gocui.KeyPgup, gocui.ModNone, result.pageUp},
+		{renderView, ',', gocui.ModNone, result.pageUp},
 		{renderView, gocui.KeyPgdn, gocui.ModNone, result.pageDown},
 		{renderView, gocui.KeySpace, gocui.ModNone, result.pageDown},
+		{renderView, 'm', gocui.ModNone, result.pageDown},
+		{renderView, 'g', gocui.ModNone, result.pageTop},
+		{renderView, 'G', gocui.ModNone, result.pageBottom},
 	}
 
 	for _, kb := range result.keybindings {
@@ -196,6 +200,17 @@ func (ui *ui) pageDown(g *gocui.Gui, v *gocui.View) error {
 	ui.YOffset += maxY / 2
 	ui.YOffset = min(ui.YOffset, ui.lines-maxY+1)
 	ui.YOffset = max(ui.YOffset, 0)
+	return nil
+}
+
+func (ui *ui) pageTop(g *gocui.Gui, v *gocui.View) error {
+	ui.YOffset = 0
+	return nil
+}
+
+func (ui *ui) pageBottom(g *gocui.Gui, v *gocui.View) error {
+	_, maxY := g.Size()
+	ui.YOffset = max(maxY, ui.lines-maxY+1)
 	return nil
 }
 
