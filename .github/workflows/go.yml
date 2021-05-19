@@ -26,8 +26,8 @@ jobs:
 
     - name: input
       run: |
-        echo myinput1
-        echo myinput2
+        echo "::set-output name=i1::myinput1\n"
+        echo "::set-output name=i2::myinput2\n"
       id: input_id
 
     - name: output
